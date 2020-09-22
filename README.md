@@ -55,7 +55,7 @@ has_many : buys
 | days_id         | integer | null: false                    |
 | price           | integer | null: false                    |
 
-bolongs_to : user
+belongs_to : user
 has_one : buy
 
 ## buys テーブル
