@@ -40,6 +40,38 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("First name kana is invalid")
     end
 
+    it 'first_nameが全角でなければ登録できないこと' do
+      @user.first_name_kana = ""
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name kana is invalid")
+    end
+
+    it 'last_nameが全角でなければ登録できないこと' do
+      @user.last_name = "ｱｲｳｴｵ"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("Last name is invalid")
+    end
+
+
+    it 'first_nameが全角でなければ登録できないこと' do
+      @user.first_name_kana = "ｱｲｳｴｵ"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name is invalid")
+    end
+     
+    it 'first_name_kanaが半角カタカナでは登録できないこと' do
+      @user.first_name_kana = "あいうえお"
+      @user.valid?
+      expect(@user.errors.full_messages).to include("First name kana is invalid")
+      end
+
+      it 'last_name_kanaが半角カタカナでは登録できないこと' do
+        @user.last_name_kana = "あいうえお"
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name kana is invalid")
+        end
+
+
      it "emailが空では登録できないこと" do
        @user.email = nil
        @user.valid?
@@ -72,28 +104,12 @@ RSpec.describe User, type: :model do
        expect(@user.errors.full_messages).to include("Birthday can't be blank")
      end
 
-     it 'first_name_kanaが全角カタカナでなければ登録できないこと' do
-       @user.first_name_kana = "あいうえお"
-       @user.valid?
-       expect(@user.errors.full_messages).to include("First name kana is invalid")
-     end
-      
+
       it "emailが@を含む必要があること" do
           @user.email =  "testtest"
           @user.valid?
           expect(@user.errors.full_messages).to include("Email is invalid")
         end   
-    
-      it 'first_nameが半角カタカナでは登録できないこと' do
-      @user.first_name_kana = "あいうえお"
-      @user.valid?
-      expect(@user.errors.full_messages).to include("First name kana is invalid")
-      end
-
-      it 'last_nameが半角カタカナでは登録できないこと' do
-        @user.last_name_kana = "あいうえお"
-        @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana is invalid")
-        end
   end
 end
+
