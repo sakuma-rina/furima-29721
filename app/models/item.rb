@@ -8,5 +8,13 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
-  
+
+  with_options  numericality: { other_than: 1 } do
+    validates :category_id,:condition_id,:fee_id,:address_id,:days_id
+
+  end
+
+  with_options presence:true do
+    validates :product_name,:description,:price
+  end
 end
