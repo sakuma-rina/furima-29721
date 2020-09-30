@@ -53,7 +53,7 @@ RSpec.describe Item, type: :model do
      end
 
      it"priceが10_000_000以上では登録出来ないこと" do
-      @item.price =  10_000_001
+      @item.price =  10_000_000
       @item.valid?
       expect(@item.errors.full_messages).to include("Price must be less than 10000000")
      end
@@ -64,6 +64,35 @@ RSpec.describe Item, type: :model do
       expect(@item.errors.full_messages).to include("Image can't be blank")
      end
 
+     it "category_idが1では登録出来ないこと" do
+      @item.category_id = 1
+      @item.valid?
+     expect(@item.errors.full_messages).to include("Category must be other than 1")
+     end
+
+     it "condition_id が1では登録出来ないこと" do
+      @item.condition_id  = 1
+      @item.valid?
+     expect(@item.errors.full_messages).to include("Condition must be other than 1")
+    end
+
+    it "fee_idが1では登録出来ないこと" do
+      @item.fee_id   = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Fee must be other than 1")
+     end
+
+     it "address_idが1では登録出来ないこと" do
+      @item.address_id  = 1
+      @item.valid?
+      expect(@item.errors.full_messages).to include("Address must be other than 1")
+     end
+
+     it "days_idが1では登録出来ないこと" do
+      @item.days_id =1
+      @item.valid?
+       expect(@item.errors.full_messages).to include("Days must be other than 1")
+     end
 
 end
 
