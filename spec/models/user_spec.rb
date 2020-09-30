@@ -40,23 +40,10 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("First name kana is invalid")
     end
 
-    it 'first_nameが全角でなければ登録できないこと' do
-      @user.first_name_kana = ""
-      @user.valid?
-      expect(@user.errors.full_messages).to include("First name kana is invalid")
-    end
-
     it 'last_nameが全角でなければ登録できないこと' do
       @user.last_name = "ｱｲｳｴｵ"
       @user.valid?
       expect(@user.errors.full_messages).to include("Last name is invalid")
-    end
-
-
-    it 'first_nameが全角でなければ登録できないこと' do
-      @user.first_name_kana = "ｱｲｳｴｵ"
-      @user.valid?
-      expect(@user.errors.full_messages).to include("First name is invalid")
     end
      
     it 'first_name_kanaが半角カタカナでは登録できないこと' do
@@ -112,4 +99,3 @@ RSpec.describe User, type: :model do
         end   
   end
 end
-
