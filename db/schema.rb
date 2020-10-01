@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_025111) do
     t.integer "condition_id"
     t.integer "fee_id"
     t.integer "address_id"
-    t.integer "days_id"
+    t.integer "day_id"
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
