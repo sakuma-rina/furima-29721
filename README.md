@@ -37,7 +37,7 @@ has_many : buys
 belongs_to : user
 has_one : buy
 
-## buys テーブル
+## orders テーブル
 
 | Column   | Type    | Options                        |
 | -------- | ------- | ------------------------------ |
@@ -46,7 +46,7 @@ has_one : buy
 
 belongs_to : user
 belongs_to : item
-has_one : adress
+has_one : address
 
 
 ## addresses テーブル
