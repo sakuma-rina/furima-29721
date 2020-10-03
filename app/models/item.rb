@@ -20,6 +20,4 @@ class Item < ApplicationRecord
   with_options numericality: { greater_than: 299, less_than: 10_000_000 } do
     validates :price
   end
-
-  
 end
