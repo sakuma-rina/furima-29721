@@ -3,18 +3,12 @@ class OrderDestination
   include ActiveModel::Model
   attr_accessor  :post_code,:state_id,:city,:address,:building_name,:phone_number,:user_id,:item_id,:token
 
-  with_options presence: true do
-    validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/}
-    validates :city, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/}
-    validates :address
-    validates :phone_number
-   end
-
-  with_options numericality: { other_than: 1 } do
-    validates :state_id
+   with_options presence: true do
+    validates :token, :city, :address
+    validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
+    validates :phone_number, format: { with: /\A\d{10,11}\z/ }
+    validates :state_id, numericality: { other_than: 1 }
   end
-
-  
 
 
   def save
