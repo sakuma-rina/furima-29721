@@ -41,15 +41,15 @@ has_one : buy
 
 | Column   | Type    | Options                        |
 | -------- | ------- | ------------------------------ |
-| user_id  | integer | null: false , foreign_key: ture|
-| item_id  | integer | null: false , foreign_key: ture|
+| user_id  | integer | null: false , foreign_key: true|
+| item_id  | integer | null: false , foreign_key: true|
 
 belongs_to : user
 belongs_to : item
-has_one : address
+has_one : destination
 
 
-## addresses テーブル
+## destination テーブル 
 
 
 | Column        | Type    | Options                        |
