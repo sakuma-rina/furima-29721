@@ -63,8 +63,8 @@ RSpec.describe OrderDestination, type: :model do
       expect(@order_destination.errors.full_messages).to include("Phone number is invalid")
     end
 
-    it 'phone_numberは11桁以外は登録出来ないこと' do
-      @order_destination.phone_number = '08012345678912'
+    it 'phone_numberは12桁以上は登録出来ないこと' do
+      @order_destination.phone_number = '080123456789'
       @order_destination.valid?
       expect(@order_destination.errors.full_messages).to include("Phone number is invalid")
     end
