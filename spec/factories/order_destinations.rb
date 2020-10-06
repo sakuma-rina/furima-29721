@@ -4,7 +4,7 @@ FactoryBot.define do
     state_id  { 2 }
     city { '横浜市' }
     address { '青葉区' }
-    building_name { 'あああ'}
+    building_name { 'あああ' }
     phone_number { '08012345678' }
   end
 end
