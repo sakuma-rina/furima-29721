@@ -18,7 +18,7 @@ RSpec.describe OrderDestination, type: :model do
     it 'post_codeが空では登録できないこと' do
       @order_destination.post_code = nil
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Post code is invalid")
+      expect(@order_destination.errors.full_messages).to include('Post code is invalid')
     end
 
     it 'state_idが空では登録できないこと' do
@@ -54,23 +54,19 @@ RSpec.describe OrderDestination, type: :model do
     it 'post_codeはハイフンがなければ登録出来ないこと' do
       @order_destination.post_code = '1234567'
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Post code is invalid")
+      expect(@order_destination.errors.full_messages).to include('Post code is invalid')
     end
 
     it 'phone_numberはハイフンがあると登録出来ないこと' do
       @order_destination.phone_number = '080-1234-5678'
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Phone number is invalid")
+      expect(@order_destination.errors.full_messages).to include('Phone number is invalid')
     end
 
     it 'phone_numberは12桁以上は登録出来ないこと' do
       @order_destination.phone_number = '080123456789'
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("Phone number is invalid")
+      expect(@order_destination.errors.full_messages).to include('Phone number is invalid')
     end
-
-   
   end
 end
-
-

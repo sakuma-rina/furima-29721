@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
     else
       render :show
     end
-   end
+  end
 
   private
 
