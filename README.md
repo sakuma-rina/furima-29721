@@ -60,7 +60,7 @@ has_one : destination
 | address       | string  | null: false                    |
 | building_name | string  |                                |
 | phone_number  | string  | null: false                    |
-| order_id        | integer | null: false, foreign_key: ture |
+| order_id       | integer | null: false, foreign_key: ture |
 
 belongs_to : buy
 
