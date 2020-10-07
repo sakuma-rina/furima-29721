@@ -37,19 +37,19 @@ has_many : buys
 belongs_to : user
 has_one : buy
 
-## buys テーブル
+## orders テーブル
 
 | Column   | Type    | Options                        |
 | -------- | ------- | ------------------------------ |
-| user_id  | integer | null: false , foreign_key: ture|
-| item_id  | integer | null: false , foreign_key: ture|
+| user_id  | integer | null: false , foreign_key: true|
+| item_id  | integer | null: false , foreign_key: true|
 
 belongs_to : user
 belongs_to : item
-has_one : adress
+has_one : destination
 
 
-## addresses テーブル
+## destination テーブル 
 
 
 | Column        | Type    | Options                        |
@@ -60,7 +60,7 @@ has_one : adress
 | address       | string  | null: false                    |
 | building_name | string  |                                |
 | phone_number  | string  | null: false                    |
-| buy_id        | integer | null: false, foreign_key: ture |
+| order_id       | integer | null: false, foreign_key: ture |
 
 belongs_to : buy
 
