@@ -27,10 +27,10 @@ RSpec.describe OrderDestination, type: :model do
       expect(@order_destination.errors.full_messages).to include("State can't be blank")
     end
 
-    it 'state_idが空では登録できないこと' do
-      @order_destination.state_id = nil
+    it 'state_idが1では登録できないこと' do
+      @order_destination.state_id = 1
       @order_destination.valid?
-      expect(@order_destination.errors.full_messages).to include("State can't be blank")
+      expect(@order_destination.errors.full_messages).to include("State must be other than 1")
     end
 
     it 'cityが空では登録できないこと' do
